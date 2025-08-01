@@ -1,0 +1,373 @@
+openapi: 3.1.0
+info:
+  description: Smarbar Backoffice AP
+  title: Smarbar Backoffice AP
+  version: 1.0.0
+servers:
+- url: /
+paths:
+  /categories:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/category"
+                type: array
+          description: Success
+      tags:
+      - Categories
+      x-accepts:
+      - application/json
+      x-tags:
+      - tag: Categories
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/category"
+      responses:
+        "201":
+          $ref: "#/components/responses/201"
+          description: Success
+      tags:
+      - Categories
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      x-tags:
+      - tag: Categories
+  /categories/{categoryId}:
+    delete:
+      parameters:
+      - explode: false
+        in: path
+        name: categoryId
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Entity successfully deleted
+      tags:
+      - Categories
+      x-accepts:
+      - application/json
+      x-tags:
+      - tag: Categories
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: categoryId
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/category"
+          description: Success
+      tags:
+      - Categories
+      x-accepts:
+      - application/json
+      x-tags:
+      - tag: Categories
+    parameters:
+    - explode: false
+      in: path
+      name: categoryId
+      required: false
+      schema:
+        type: string
+      style: simple
+    put:
+      parameters:
+      - explode: false
+        in: path
+        name: categoryId
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/category"
+      responses:
+        "200":
+          description: Entity successfully updated
+      tags:
+      - Categories
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      x-tags:
+      - tag: Categories
+  /items:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/item"
+                type: array
+          description: Success
+      tags:
+      - Items
+      x-accepts:
+      - application/json
+      x-tags:
+      - tag: Items
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/item"
+      responses:
+        "201":
+          $ref: "#/components/responses/201"
+      tags:
+      - Items
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      x-tags:
+      - tag: Items
+  /items/{itemId}:
+    delete:
+      parameters:
+      - explode: false
+        in: path
+        name: itemId
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Entity successfully deleted
+      tags:
+      - Items
+      x-accepts:
+      - application/json
+      x-tags:
+      - tag: Items
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: itemId
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/item"
+          description: Success
+      tags:
+      - Items
+      x-accepts:
+      - application/json
+      x-tags:
+      - tag: Items
+    parameters:
+    - explode: false
+      in: path
+      name: itemId
+      required: false
+      schema:
+        type: string
+      style: simple
+    put:
+      parameters:
+      - explode: false
+        in: path
+        name: itemId
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/item"
+      responses:
+        "200":
+          description: Entity successfully updated
+      tags:
+      - Items
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      x-tags:
+      - tag: Items
+  /tables:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/table"
+                type: array
+          description: Success
+      tags:
+      - Tables
+      x-accepts:
+      - application/json
+      x-tags:
+      - tag: Tables
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/table"
+      responses:
+        "201":
+          $ref: "#/components/responses/201"
+      tags:
+      - Tables
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      x-tags:
+      - tag: Tables
+  /tables/{tableId}:
+    delete:
+      parameters:
+      - explode: false
+        in: path
+        name: tableId
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Entity successfully deleted
+      tags:
+      - Tables
+      x-accepts:
+      - application/json
+      x-tags:
+      - tag: Tables
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: tableId
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/table"
+          description: Success
+      tags:
+      - Tables
+      x-accepts:
+      - application/json
+      x-tags:
+      - tag: Tables
+    parameters:
+    - explode: false
+      in: path
+      name: tableId
+      required: false
+      schema:
+        type: string
+      style: simple
+    put:
+      parameters:
+      - explode: false
+        in: path
+        name: tableId
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/table"
+      responses:
+        "200":
+          description: Entity successfully updated
+      tags:
+      - Tables
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      x-tags:
+      - tag: Tables
+components:
+  responses:
+    "201":
+      description: Entity successfully created
+      headers:
+        Location:
+          description: Entity successfully created
+          explode: false
+          style: simple
+  schemas:
+    category:
+      example:
+        name: name
+        description: description
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+    item:
+      example:
+        price: 0.8008281904610115
+        name: name
+        description: description
+        picture: picture
+      properties:
+        name:
+          type: string
+        price:
+          type: number
+        description:
+          type: string
+        picture:
+          type: string
+    table:
+      example:
+        name: ""
+        active: true
+        seatCount: ""
+      properties:
+        name:
+          type: "string,"
+        seatCount:
+          type: "string,"
+        active:
+          type: boolean
