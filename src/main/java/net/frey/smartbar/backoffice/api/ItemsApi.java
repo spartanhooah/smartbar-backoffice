@@ -1,8 +1,14 @@
 package net.frey.smartbar.backoffice.api;
 
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
-import jakarta.ws.rs.*;
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.DELETE;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.PUT;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.Response;
 import net.frey.smartbar.backoffice.api.model.Item;
 
@@ -12,39 +18,59 @@ import net.frey.smartbar.backoffice.api.model.Item;
 @Path("/items")
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen",
-        date = "2025-08-01T14:11:55.358897561-04:00[America/New_York]",
+        date = "2025-08-04T11:41:28.021626384-04:00[America/New_York]",
         comments = "Generator version: 7.14.0")
-public class ItemsApi {
+public interface ItemsApi {
 
+    /**
+     *
+     *
+     * @return Success
+     */
     @GET
     @Produces({"application/json"})
-    public Response itemsGet() {
-        return Response.ok().entity("magic!").build();
-    }
+    Response itemsGet();
 
+    /**
+     *
+     *
+     * @param itemId
+     * @return Entity successfully deleted
+     */
     @DELETE
     @Path("/{itemId}")
-    public Response itemsItemIdDelete(@PathParam("itemId") String itemId) {
-        return Response.ok().entity("magic!").build();
-    }
+    Response itemsItemIdDelete(@PathParam("itemId") String itemId);
 
+    /**
+     *
+     *
+     * @param itemId
+     * @return Success
+     */
     @GET
     @Path("/{itemId}")
     @Produces({"application/json"})
-    public Response itemsItemIdGet(@PathParam("itemId") String itemId) {
-        return Response.ok().entity("magic!").build();
-    }
+    Response itemsItemIdGet(@PathParam("itemId") String itemId);
 
+    /**
+     *
+     *
+     * @param itemId
+     * @param item
+     * @return Entity successfully updated
+     */
     @PUT
     @Path("/{itemId}")
     @Consumes({"application/json"})
-    public Response itemsItemIdPut(@PathParam("itemId") String itemId, @Valid Item item) {
-        return Response.ok().entity("magic!").build();
-    }
+    Response itemsItemIdPut(@PathParam("itemId") String itemId, @Valid Item item);
 
+    /**
+     *
+     *
+     * @param item
+     * @return Entity successfully created
+     */
     @POST
     @Consumes({"application/json"})
-    public Response itemsPost(@Valid Item item) {
-        return Response.ok().entity("magic!").build();
-    }
+    Response itemsPost(@Valid Item item);
 }

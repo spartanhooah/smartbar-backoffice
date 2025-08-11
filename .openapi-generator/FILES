@@ -1,4 +1,3 @@
-.openapi-generator-ignore
 README.md
 pom.xml
 src/main/java/net/frey/smartbar/backoffice/RestApplication.java
@@ -6,7 +5,7 @@ src/main/java/net/frey/smartbar/backoffice/RestResourceRoot.java
 src/main/java/net/frey/smartbar/backoffice/api/CategoriesApi.java
 src/main/java/net/frey/smartbar/backoffice/api/ItemsApi.java
 src/main/java/net/frey/smartbar/backoffice/api/TablesApi.java
-src/main/java/net/frey/smartbar/backoffice/model/Category.java
-src/main/java/net/frey/smartbar/backoffice/model/Item.java
-src/main/java/net/frey/smartbar/backoffice/model/Table.java
+src/main/java/net/frey/smartbar/backoffice/api/model/Category.java
+src/main/java/net/frey/smartbar/backoffice/api/model/Item.java
+src/main/java/net/frey/smartbar/backoffice/api/model/Table.java
 src/main/openapi/openapi.yaml

@@ -1,7 +1,14 @@
 package net.frey.smartbar.backoffice.api;
 
 import jakarta.validation.Valid;
-import jakarta.ws.rs.*;
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.DELETE;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.PUT;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.Response;
 import net.frey.smartbar.backoffice.api.model.Table;
 
@@ -11,39 +18,59 @@ import net.frey.smartbar.backoffice.api.model.Table;
 @Path("/tables")
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen",
-        date = "2025-08-01T14:11:55.358897561-04:00[America/New_York]",
+        date = "2025-08-04T11:41:28.021626384-04:00[America/New_York]",
         comments = "Generator version: 7.14.0")
-public class TablesApi {
+public interface TablesApi {
 
+    /**
+     *
+     *
+     * @return Success
+     */
     @GET
     @Produces({"application/json"})
-    public Response tablesGet() {
-        return Response.ok().entity("magic!").build();
-    }
+    Response tablesGet();
 
+    /**
+     *
+     *
+     * @param table
+     * @return Entity successfully created
+     */
     @POST
     @Consumes({"application/json"})
-    public Response tablesPost(@Valid Table table) {
-        return Response.ok().entity("magic!").build();
-    }
+    Response tablesPost(@Valid Table table);
 
+    /**
+     *
+     *
+     * @param tableId
+     * @return Entity successfully deleted
+     */
     @DELETE
     @Path("/{tableId}")
-    public Response tablesTableIdDelete(@PathParam("tableId") String tableId) {
-        return Response.ok().entity("magic!").build();
-    }
+    Response tablesTableIdDelete(@PathParam("tableId") String tableId);
 
+    /**
+     *
+     *
+     * @param tableId
+     * @return Success
+     */
     @GET
     @Path("/{tableId}")
     @Produces({"application/json"})
-    public Response tablesTableIdGet(@PathParam("tableId") String tableId) {
-        return Response.ok().entity("magic!").build();
-    }
+    Response tablesTableIdGet(@PathParam("tableId") String tableId);
 
+    /**
+     *
+     *
+     * @param tableId
+     * @param table
+     * @return Entity successfully updated
+     */
     @PUT
     @Path("/{tableId}")
     @Consumes({"application/json"})
-    public Response tablesTableIdPut(@PathParam("tableId") String tableId, @Valid Table table) {
-        return Response.ok().entity("magic!").build();
-    }
+    Response tablesTableIdPut(@PathParam("tableId") String tableId, @Valid Table table);
 }

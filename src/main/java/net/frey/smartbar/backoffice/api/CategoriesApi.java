@@ -1,8 +1,14 @@
 package net.frey.smartbar.backoffice.api;
 
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
-import jakarta.ws.rs.*;
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.DELETE;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.PUT;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.Response;
 import net.frey.smartbar.backoffice.api.model.Category;
 
@@ -12,39 +18,59 @@ import net.frey.smartbar.backoffice.api.model.Category;
 @Path("/categories")
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen",
-        date = "2025-08-01T14:11:55.358897561-04:00[America/New_York]",
+        date = "2025-08-04T11:41:28.021626384-04:00[America/New_York]",
         comments = "Generator version: 7.14.0")
-public class CategoriesApi {
+public interface CategoriesApi {
 
+    /**
+     *
+     *
+     * @param categoryId
+     * @return Entity successfully deleted
+     */
     @DELETE
     @Path("/{categoryId}")
-    public Response categoriesCategoryIdDelete(@PathParam("categoryId") String categoryId) {
-        return Response.ok().entity("magic!").build();
-    }
+    Response categoriesCategoryIdDelete(@PathParam("categoryId") String categoryId);
 
+    /**
+     *
+     *
+     * @param categoryId
+     * @return Success
+     */
     @GET
     @Path("/{categoryId}")
     @Produces({"application/json"})
-    public Response categoriesCategoryIdGet(@PathParam("categoryId") String categoryId) {
-        return Response.ok().entity("magic!").build();
-    }
+    Response categoriesCategoryIdGet(@PathParam("categoryId") String categoryId);
 
+    /**
+     *
+     *
+     * @param categoryId
+     * @param category
+     * @return Entity successfully updated
+     */
     @PUT
     @Path("/{categoryId}")
     @Consumes({"application/json"})
-    public Response categoriesCategoryIdPut(@PathParam("categoryId") String categoryId, @Valid Category category) {
-        return Response.ok().entity("magic!").build();
-    }
+    Response categoriesCategoryIdPut(@PathParam("categoryId") String categoryId, @Valid Category category);
 
+    /**
+     *
+     *
+     * @return Success
+     */
     @GET
     @Produces({"application/json"})
-    public Response categoriesGet() {
-        return Response.ok().entity("magic!").build();
-    }
+    Response categoriesGet();
 
+    /**
+     *
+     *
+     * @param category
+     * @return Entity successfully created
+     */
     @POST
     @Consumes({"application/json"})
-    public Response categoriesPost(@Valid Category category) {
-        return Response.ok().entity("magic!").build();
-    }
+    Response categoriesPost(@Valid Category category);
 }

@@ -46,6 +46,7 @@ spotless {
     java {
         palantirJavaFormat()
         removeUnusedImports()
+        removeWildcardImports()
     }
 }
 
@@ -62,8 +63,10 @@ tasks.openApiGenerate {
     inputSpec = "src/main/resources/openapi/backoffice-openapi.yaml"
     outputDir = "$rootDir"
     apiPackage = "net.frey.smartbar.backoffice.api"
-    modelPackage = "net.frey.smartbar.backoffice.model"
+    modelPackage = "net.frey.smartbar.backoffice.api.model"
     configOptions.put("sourceFolder", "src/main/java")
     configOptions.put("useJakartaEe", "true")
     configOptions.put("useSwaggerAnnotations", "false")
+    configOptions.put("interfaceOnly", "true")
+    configOptions.put("returnResponse", "true")
 }
