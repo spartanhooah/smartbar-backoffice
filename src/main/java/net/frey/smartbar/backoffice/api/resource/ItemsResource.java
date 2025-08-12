@@ -1,10 +1,10 @@
-package net.frey.smartbar.backoffice.api;
+package net.frey.smartbar.backoffice.api.resource;
 
 import jakarta.inject.Inject;
 import jakarta.ws.rs.core.Response;
 import java.util.List;
-import net.frey.smartbar.backoffice.ItemService;
 import net.frey.smartbar.backoffice.api.model.Item;
+import net.frey.smartbar.backoffice.api.service.ItemService;
 
 public class ItemsResource implements ItemsApi {
     private final ItemService itemService;

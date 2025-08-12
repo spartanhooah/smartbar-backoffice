@@ -9,7 +9,7 @@ import java.util.Objects;
 @JsonTypeName("item")
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen",
-        date = "2025-08-04T11:41:28.021626384-04:00[America/New_York]",
+        date = "2025-08-11T13:47:41.328995228-04:00[America/New_York]",
         comments = "Generator version: 7.14.0")
 public class Item {
     private String name;

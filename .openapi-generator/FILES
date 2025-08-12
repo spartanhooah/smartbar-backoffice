@@ -1,11 +1,11 @@
 README.md
 pom.xml
-src/main/java/net/frey/smartbar/backoffice/RestApplication.java
-src/main/java/net/frey/smartbar/backoffice/RestResourceRoot.java
-src/main/java/net/frey/smartbar/backoffice/api/CategoriesApi.java
-src/main/java/net/frey/smartbar/backoffice/api/ItemsApi.java
-src/main/java/net/frey/smartbar/backoffice/api/TablesApi.java
+src/main/java/net/frey/smartbar/backoffice/api/RestApplication.java
+src/main/java/net/frey/smartbar/backoffice/api/RestResourceRoot.java
 src/main/java/net/frey/smartbar/backoffice/api/model/Category.java
 src/main/java/net/frey/smartbar/backoffice/api/model/Item.java
-src/main/java/net/frey/smartbar/backoffice/api/model/Table.java
+src/main/java/net/frey/smartbar/backoffice/api/model/TableRo.java
+src/main/java/net/frey/smartbar/backoffice/api/resource/CategoriesApi.java
+src/main/java/net/frey/smartbar/backoffice/api/resource/ItemsApi.java
+src/main/java/net/frey/smartbar/backoffice/api/resource/TablesApi.java
 src/main/openapi/openapi.yaml

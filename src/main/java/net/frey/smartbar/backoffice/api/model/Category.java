@@ -7,7 +7,7 @@ import java.util.Objects;
 @JsonTypeName("category")
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen",
-        date = "2025-08-04T11:41:28.021626384-04:00[America/New_York]",
+        date = "2025-08-11T13:47:41.328995228-04:00[America/New_York]",
         comments = "Generator version: 7.14.0")
 public class Category {
     private String name;

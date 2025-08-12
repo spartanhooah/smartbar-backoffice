@@ -4,21 +4,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.Objects;
 
-@JsonTypeName("table")
+@JsonTypeName("tableRo")
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen",
-        date = "2025-08-04T11:41:28.021626384-04:00[America/New_York]",
+        date = "2025-08-11T13:47:41.328995228-04:00[America/New_York]",
         comments = "Generator version: 7.14.0")
-public class Table {
-    private String name = null;
-    private String seatCount = null;
+public class TableRo {
+    private String name;
+    private Integer seatCount;
     private Boolean active;
 
-    public Table() {}
+    public TableRo() {}
 
     /**
      **/
-    public Table name(String name) {
+    public TableRo name(String name) {
         this.name = name;
         return this;
     }
@@ -35,24 +35,24 @@ public class Table {
 
     /**
      **/
-    public Table seatCount(String seatCount) {
+    public TableRo seatCount(Integer seatCount) {
         this.seatCount = seatCount;
         return this;
     }
 
     @JsonProperty("seatCount")
-    public String getSeatCount() {
+    public Integer getSeatCount() {
         return seatCount;
     }
 
     @JsonProperty("seatCount")
-    public void setSeatCount(String seatCount) {
+    public void setSeatCount(Integer seatCount) {
         this.seatCount = seatCount;
     }
 
     /**
      **/
-    public Table active(Boolean active) {
+    public TableRo active(Boolean active) {
         this.active = active;
         return this;
     }
@@ -75,10 +75,10 @@ public class Table {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Table table = (Table) o;
-        return Objects.equals(this.name, table.name)
-                && Objects.equals(this.seatCount, table.seatCount)
-                && Objects.equals(this.active, table.active);
+        TableRo tableRo = (TableRo) o;
+        return Objects.equals(this.name, tableRo.name)
+                && Objects.equals(this.seatCount, tableRo.seatCount)
+                && Objects.equals(this.active, tableRo.active);
     }
 
     @Override
@@ -89,7 +89,7 @@ public class Table {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Table {\n");
+        sb.append("class TableRo {\n");
 
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    seatCount: ").append(toIndentedString(seatCount)).append("\n");

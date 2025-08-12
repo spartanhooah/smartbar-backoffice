@@ -227,7 +227,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/table"
+                  $ref: "#/components/schemas/tableRo"
                 type: array
           description: Success
       tags:
@@ -241,7 +241,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/table"
+              $ref: "#/components/schemas/tableRo"
       responses:
         "201":
           $ref: "#/components/responses/201"
@@ -285,7 +285,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/table"
+                $ref: "#/components/schemas/tableRo"
           description: Success
       tags:
       - Tables
@@ -314,7 +314,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/table"
+              $ref: "#/components/schemas/tableRo"
       responses:
         "200":
           description: Entity successfully updated
@@ -359,15 +359,15 @@ components:
           type: string
         picture:
           type: string
-    table:
+    tableRo:
       example:
-        name: ""
+        name: name
         active: true
-        seatCount: ""
+        seatCount: 0
       properties:
         name:
-          type: "string,"
+          type: string
         seatCount:
-          type: "string,"
+          type: integer
         active:
           type: boolean

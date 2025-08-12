@@ -1,4 +1,4 @@
-package net.frey.smartbar.backoffice.api;
+package net.frey.smartbar.backoffice.api.resource;
 
 import jakarta.validation.Valid;
 import jakarta.ws.rs.Consumes;
@@ -10,7 +10,7 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.Response;
-import net.frey.smartbar.backoffice.api.model.Table;
+import net.frey.smartbar.backoffice.api.model.TableRo;
 
 /**
  * Represents a collection of functions to interact with the API endpoints.
@@ -18,7 +18,7 @@ import net.frey.smartbar.backoffice.api.model.Table;
 @Path("/tables")
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen",
-        date = "2025-08-04T11:41:28.021626384-04:00[America/New_York]",
+        date = "2025-08-11T13:47:41.328995228-04:00[America/New_York]",
         comments = "Generator version: 7.14.0")
 public interface TablesApi {
 
@@ -34,12 +34,12 @@ public interface TablesApi {
     /**
      *
      *
-     * @param table
+     * @param tableRo
      * @return Entity successfully created
      */
     @POST
     @Consumes({"application/json"})
-    Response tablesPost(@Valid Table table);
+    Response tablesPost(@Valid TableRo tableRo);
 
     /**
      *
@@ -66,11 +66,11 @@ public interface TablesApi {
      *
      *
      * @param tableId
-     * @param table
+     * @param tableRo
      * @return Entity successfully updated
      */
     @PUT
     @Path("/{tableId}")
     @Consumes({"application/json"})
-    Response tablesTableIdPut(@PathParam("tableId") String tableId, @Valid Table table);
+    Response tablesTableIdPut(@PathParam("tableId") String tableId, @Valid TableRo tableRo);
 }

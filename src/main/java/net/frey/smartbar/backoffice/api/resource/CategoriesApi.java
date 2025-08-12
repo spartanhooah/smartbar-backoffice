@@ -1,4 +1,4 @@
-package net.frey.smartbar.backoffice.api;
+package net.frey.smartbar.backoffice.api.resource;
 
 import jakarta.validation.Valid;
 import jakarta.ws.rs.Consumes;
@@ -10,67 +10,67 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.Response;
-import net.frey.smartbar.backoffice.api.model.Item;
+import net.frey.smartbar.backoffice.api.model.Category;
 
 /**
  * Represents a collection of functions to interact with the API endpoints.
  */
-@Path("/items")
+@Path("/categories")
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen",
-        date = "2025-08-04T11:41:28.021626384-04:00[America/New_York]",
+        date = "2025-08-11T13:47:41.328995228-04:00[America/New_York]",
         comments = "Generator version: 7.14.0")
-public interface ItemsApi {
+public interface CategoriesApi {
 
     /**
      *
      *
-     * @return Success
-     */
-    @GET
-    @Produces({"application/json"})
-    Response itemsGet();
-
-    /**
-     *
-     *
-     * @param itemId
+     * @param categoryId
      * @return Entity successfully deleted
      */
     @DELETE
-    @Path("/{itemId}")
-    Response itemsItemIdDelete(@PathParam("itemId") String itemId);
+    @Path("/{categoryId}")
+    Response categoriesCategoryIdDelete(@PathParam("categoryId") String categoryId);
 
     /**
      *
      *
-     * @param itemId
+     * @param categoryId
      * @return Success
      */
     @GET
-    @Path("/{itemId}")
+    @Path("/{categoryId}")
     @Produces({"application/json"})
-    Response itemsItemIdGet(@PathParam("itemId") String itemId);
+    Response categoriesCategoryIdGet(@PathParam("categoryId") String categoryId);
 
     /**
      *
      *
-     * @param itemId
-     * @param item
+     * @param categoryId
+     * @param category
      * @return Entity successfully updated
      */
     @PUT
-    @Path("/{itemId}")
+    @Path("/{categoryId}")
     @Consumes({"application/json"})
-    Response itemsItemIdPut(@PathParam("itemId") String itemId, @Valid Item item);
+    Response categoriesCategoryIdPut(@PathParam("categoryId") String categoryId, @Valid Category category);
 
     /**
      *
      *
-     * @param item
+     * @return Success
+     */
+    @GET
+    @Produces({"application/json"})
+    Response categoriesGet();
+
+    /**
+     *
+     *
+     * @param category
      * @return Entity successfully created
      */
     @POST
     @Consumes({"application/json"})
-    Response itemsPost(@Valid Item item);
+    Response categoriesPost(@Valid Category category);
 }

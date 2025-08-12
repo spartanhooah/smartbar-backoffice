@@ -1,4 +1,4 @@
-package net.frey.smartbar.backoffice.api;
+package net.frey.smartbar.backoffice.api.resource;
 
 import io.smallrye.common.annotation.NonBlocking;
 import jakarta.ws.rs.core.Response;
