@@ -2,22 +2,26 @@ package net.frey.smartbar.backoffice.api.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import jakarta.validation.Valid;
+import java.math.BigDecimal;
 import java.util.Objects;
 
-@JsonTypeName("category")
+@JsonTypeName("item")
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen",
         date = "2025-08-11T13:47:41.328995228-04:00[America/New_York]",
         comments = "Generator version: 7.14.0")
-public class Category {
+public class ItemRo {
     private String name;
+    private BigDecimal price;
     private String description;
+    private String picture;
 
-    public Category() {}
+    public ItemRo() {}
 
     /**
      **/
-    public Category name(String name) {
+    public ItemRo name(String name) {
         this.name = name;
         return this;
     }
@@ -34,7 +38,25 @@ public class Category {
 
     /**
      **/
-    public Category description(String description) {
+    public ItemRo price(BigDecimal price) {
+        this.price = price;
+        return this;
+    }
+
+    @JsonProperty("price")
+    @Valid
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    @JsonProperty("price")
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    /**
+     **/
+    public ItemRo description(String description) {
         this.description = description;
         return this;
     }
@@ -49,6 +71,23 @@ public class Category {
         this.description = description;
     }
 
+    /**
+     **/
+    public ItemRo picture(String picture) {
+        this.picture = picture;
+        return this;
+    }
+
+    @JsonProperty("picture")
+    public String getPicture() {
+        return picture;
+    }
+
+    @JsonProperty("picture")
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -57,22 +96,27 @@ public class Category {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Category category = (Category) o;
-        return Objects.equals(this.name, category.name) && Objects.equals(this.description, category.description);
+        ItemRo item = (ItemRo) o;
+        return Objects.equals(this.name, item.name)
+                && Objects.equals(this.price, item.price)
+                && Objects.equals(this.description, item.description)
+                && Objects.equals(this.picture, item.picture);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, description);
+        return Objects.hash(name, price, description, picture);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Category {\n");
+        sb.append("class Item {\n");
 
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    price: ").append(toIndentedString(price)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
+        sb.append("    picture: ").append(toIndentedString(picture)).append("\n");
         sb.append("}");
         return sb.toString();
     }

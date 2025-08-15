@@ -2,26 +2,22 @@ package net.frey.smartbar.backoffice.api.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import jakarta.validation.Valid;
-import java.math.BigDecimal;
 import java.util.Objects;
 
-@JsonTypeName("item")
+@JsonTypeName("category")
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen",
         date = "2025-08-11T13:47:41.328995228-04:00[America/New_York]",
         comments = "Generator version: 7.14.0")
-public class Item {
+public class CategoryRo {
     private String name;
-    private BigDecimal price;
     private String description;
-    private String picture;
 
-    public Item() {}
+    public CategoryRo() {}
 
     /**
      **/
-    public Item name(String name) {
+    public CategoryRo name(String name) {
         this.name = name;
         return this;
     }
@@ -38,25 +34,7 @@ public class Item {
 
     /**
      **/
-    public Item price(BigDecimal price) {
-        this.price = price;
-        return this;
-    }
-
-    @JsonProperty("price")
-    @Valid
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    @JsonProperty("price")
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
-    /**
-     **/
-    public Item description(String description) {
+    public CategoryRo description(String description) {
         this.description = description;
         return this;
     }
@@ -71,23 +49,6 @@ public class Item {
         this.description = description;
     }
 
-    /**
-     **/
-    public Item picture(String picture) {
-        this.picture = picture;
-        return this;
-    }
-
-    @JsonProperty("picture")
-    public String getPicture() {
-        return picture;
-    }
-
-    @JsonProperty("picture")
-    public void setPicture(String picture) {
-        this.picture = picture;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -96,27 +57,22 @@ public class Item {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Item item = (Item) o;
-        return Objects.equals(this.name, item.name)
-                && Objects.equals(this.price, item.price)
-                && Objects.equals(this.description, item.description)
-                && Objects.equals(this.picture, item.picture);
+        CategoryRo category = (CategoryRo) o;
+        return Objects.equals(this.name, category.name) && Objects.equals(this.description, category.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, price, description, picture);
+        return Objects.hash(name, description);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Item {\n");
+        sb.append("class Category {\n");
 
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    price: ").append(toIndentedString(price)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    picture: ").append(toIndentedString(picture)).append("\n");
         sb.append("}");
         return sb.toString();
     }

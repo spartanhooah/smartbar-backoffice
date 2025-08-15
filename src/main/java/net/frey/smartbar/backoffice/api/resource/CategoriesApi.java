@@ -10,7 +10,7 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.Response;
-import net.frey.smartbar.backoffice.api.model.Category;
+import net.frey.smartbar.backoffice.api.model.CategoryRo;
 
 /**
  * Represents a collection of functions to interact with the API endpoints.
@@ -53,7 +53,7 @@ public interface CategoriesApi {
     @PUT
     @Path("/{categoryId}")
     @Consumes({"application/json"})
-    Response categoriesCategoryIdPut(@PathParam("categoryId") String categoryId, @Valid Category category);
+    Response categoriesCategoryIdPut(@PathParam("categoryId") String categoryId, @Valid CategoryRo category);
 
     /**
      *
@@ -72,5 +72,5 @@ public interface CategoriesApi {
      */
     @POST
     @Consumes({"application/json"})
-    Response categoriesPost(@Valid Category category);
+    Response categoriesPost(@Valid CategoryRo category);
 }

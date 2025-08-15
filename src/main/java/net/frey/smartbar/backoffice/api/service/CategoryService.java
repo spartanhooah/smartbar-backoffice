@@ -1,18 +1,16 @@
 package net.frey.smartbar.backoffice.api.service;
 
 import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
-import net.frey.smartbar.backoffice.data.Item;
+import net.frey.smartbar.backoffice.data.Category;
 
 @ApplicationScoped
-public class ItemService extends CrudService<Item> {
-    public ItemService() {
+public class CategoryService extends CrudService<Category> {
+    public CategoryService() {
         super(null);
     }
 
-    @Inject
-    public ItemService(EntityManager em) {
+    public CategoryService(EntityManager em) {
         super(em);
     }
 }

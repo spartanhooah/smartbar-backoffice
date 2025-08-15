@@ -10,7 +10,7 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.Response;
-import net.frey.smartbar.backoffice.api.model.Item;
+import net.frey.smartbar.backoffice.api.model.ItemRo;
 
 /**
  * Represents a collection of functions to interact with the API endpoints.
@@ -62,7 +62,7 @@ public interface ItemsApi {
     @PUT
     @Path("/{itemId}")
     @Consumes({"application/json"})
-    Response itemsItemIdPut(@PathParam("itemId") String itemId, @Valid Item item);
+    Response itemsItemIdPut(@PathParam("itemId") String itemId, @Valid ItemRo item);
 
     /**
      *
@@ -72,5 +72,5 @@ public interface ItemsApi {
      */
     @POST
     @Consumes({"application/json"})
-    Response itemsPost(@Valid Item item);
+    Response itemsPost(@Valid ItemRo item);
 }
