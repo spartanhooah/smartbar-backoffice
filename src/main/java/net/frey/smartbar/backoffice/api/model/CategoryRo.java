@@ -1,19 +1,29 @@
 package net.frey.smartbar.backoffice.api.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import jakarta.validation.constraints.NotNull;
 import java.util.Objects;
 
-@JsonTypeName("category")
+@JsonTypeName("categoryRo")
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen",
-        date = "2025-08-11T13:47:41.328995228-04:00[America/New_York]",
+        date = "2025-08-21T13:45:59.456751902-04:00[America/New_York]",
         comments = "Generator version: 7.14.0")
 public class CategoryRo {
     private String name;
     private String description;
 
     public CategoryRo() {}
+
+    @JsonCreator
+    public CategoryRo(
+            @JsonProperty(required = true, value = "name") String name,
+            @JsonProperty(required = true, value = "description") String description) {
+        this.name = name;
+        this.description = description;
+    }
 
     /**
      **/
@@ -22,12 +32,13 @@ public class CategoryRo {
         return this;
     }
 
-    @JsonProperty("name")
+    @JsonProperty(required = true, value = "name")
+    @NotNull
     public String getName() {
         return name;
     }
 
-    @JsonProperty("name")
+    @JsonProperty(required = true, value = "name")
     public void setName(String name) {
         this.name = name;
     }
@@ -39,12 +50,13 @@ public class CategoryRo {
         return this;
     }
 
-    @JsonProperty("description")
+    @JsonProperty(required = true, value = "description")
+    @NotNull
     public String getDescription() {
         return description;
     }
 
-    @JsonProperty("description")
+    @JsonProperty(required = true, value = "description")
     public void setDescription(String description) {
         this.description = description;
     }
@@ -57,8 +69,8 @@ public class CategoryRo {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        CategoryRo category = (CategoryRo) o;
-        return Objects.equals(this.name, category.name) && Objects.equals(this.description, category.description);
+        CategoryRo categoryRo = (CategoryRo) o;
+        return Objects.equals(this.name, categoryRo.name) && Objects.equals(this.description, categoryRo.description);
     }
 
     @Override
@@ -69,7 +81,7 @@ public class CategoryRo {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Category {\n");
+        sb.append("class CategoryRo {\n");
 
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");

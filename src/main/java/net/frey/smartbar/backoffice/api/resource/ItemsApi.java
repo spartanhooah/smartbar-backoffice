@@ -18,7 +18,7 @@ import net.frey.smartbar.backoffice.api.model.ItemRo;
 @Path("/items")
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen",
-        date = "2025-08-11T13:47:41.328995228-04:00[America/New_York]",
+        date = "2025-08-21T13:45:59.456751902-04:00[America/New_York]",
         comments = "Generator version: 7.14.0")
 public interface ItemsApi {
 
@@ -56,21 +56,21 @@ public interface ItemsApi {
      *
      *
      * @param itemId
-     * @param item
+     * @param itemRo
      * @return Entity successfully updated
      */
     @PUT
     @Path("/{itemId}")
     @Consumes({"application/json"})
-    Response itemsItemIdPut(@PathParam("itemId") String itemId, @Valid ItemRo item);
+    Response itemsItemIdPut(@PathParam("itemId") String itemId, @Valid ItemRo itemRo);
 
     /**
      *
      *
-     * @param item
+     * @param itemRo
      * @return Entity successfully created
      */
     @POST
     @Consumes({"application/json"})
-    Response itemsPost(@Valid ItemRo item);
+    Response itemsPost(@Valid ItemRo itemRo);
 }

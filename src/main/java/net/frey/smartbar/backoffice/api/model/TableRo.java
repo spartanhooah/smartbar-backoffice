@@ -1,13 +1,15 @@
 package net.frey.smartbar.backoffice.api.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import jakarta.validation.constraints.NotNull;
 import java.util.Objects;
 
 @JsonTypeName("tableRo")
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen",
-        date = "2025-08-11T13:47:41.328995228-04:00[America/New_York]",
+        date = "2025-08-21T13:45:59.456751902-04:00[America/New_York]",
         comments = "Generator version: 7.14.0")
 public class TableRo {
     private String name;
@@ -16,6 +18,16 @@ public class TableRo {
 
     public TableRo() {}
 
+    @JsonCreator
+    public TableRo(
+            @JsonProperty(required = true, value = "name") String name,
+            @JsonProperty(required = true, value = "seatCount") Integer seatCount,
+            @JsonProperty(required = true, value = "active") Boolean active) {
+        this.name = name;
+        this.seatCount = seatCount;
+        this.active = active;
+    }
+
     /**
      **/
     public TableRo name(String name) {
@@ -23,12 +35,13 @@ public class TableRo {
         return this;
     }
 
-    @JsonProperty("name")
+    @JsonProperty(required = true, value = "name")
+    @NotNull
     public String getName() {
         return name;
     }
 
-    @JsonProperty("name")
+    @JsonProperty(required = true, value = "name")
     public void setName(String name) {
         this.name = name;
     }
@@ -40,12 +53,13 @@ public class TableRo {
         return this;
     }
 
-    @JsonProperty("seatCount")
+    @JsonProperty(required = true, value = "seatCount")
+    @NotNull
     public Integer getSeatCount() {
         return seatCount;
     }
 
-    @JsonProperty("seatCount")
+    @JsonProperty(required = true, value = "seatCount")
     public void setSeatCount(Integer seatCount) {
         this.seatCount = seatCount;
     }
@@ -57,12 +71,13 @@ public class TableRo {
         return this;
     }
 
-    @JsonProperty("active")
+    @JsonProperty(required = true, value = "active")
+    @NotNull
     public Boolean getActive() {
         return active;
     }
 
-    @JsonProperty("active")
+    @JsonProperty(required = true, value = "active")
     public void setActive(Boolean active) {
         this.active = active;
     }

@@ -1,15 +1,17 @@
 package net.frey.smartbar.backoffice.api.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-@JsonTypeName("item")
+@JsonTypeName("itemRo")
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen",
-        date = "2025-08-11T13:47:41.328995228-04:00[America/New_York]",
+        date = "2025-08-21T13:45:59.456751902-04:00[America/New_York]",
         comments = "Generator version: 7.14.0")
 public class ItemRo {
     private String name;
@@ -19,6 +21,18 @@ public class ItemRo {
 
     public ItemRo() {}
 
+    @JsonCreator
+    public ItemRo(
+            @JsonProperty(required = true, value = "name") String name,
+            @JsonProperty(required = true, value = "price") BigDecimal price,
+            @JsonProperty(required = true, value = "description") String description,
+            @JsonProperty(required = true, value = "picture") String picture) {
+        this.name = name;
+        this.price = price;
+        this.description = description;
+        this.picture = picture;
+    }
+
     /**
      **/
     public ItemRo name(String name) {
@@ -26,12 +40,13 @@ public class ItemRo {
         return this;
     }
 
-    @JsonProperty("name")
+    @JsonProperty(required = true, value = "name")
+    @NotNull
     public String getName() {
         return name;
     }
 
-    @JsonProperty("name")
+    @JsonProperty(required = true, value = "name")
     public void setName(String name) {
         this.name = name;
     }
@@ -43,13 +58,14 @@ public class ItemRo {
         return this;
     }
 
-    @JsonProperty("price")
+    @JsonProperty(required = true, value = "price")
+    @NotNull
     @Valid
     public BigDecimal getPrice() {
         return price;
     }
 
-    @JsonProperty("price")
+    @JsonProperty(required = true, value = "price")
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
@@ -61,12 +77,13 @@ public class ItemRo {
         return this;
     }
 
-    @JsonProperty("description")
+    @JsonProperty(required = true, value = "description")
+    @NotNull
     public String getDescription() {
         return description;
     }
 
-    @JsonProperty("description")
+    @JsonProperty(required = true, value = "description")
     public void setDescription(String description) {
         this.description = description;
     }
@@ -78,12 +95,13 @@ public class ItemRo {
         return this;
     }
 
-    @JsonProperty("picture")
+    @JsonProperty(required = true, value = "picture")
+    @NotNull
     public String getPicture() {
         return picture;
     }
 
-    @JsonProperty("picture")
+    @JsonProperty(required = true, value = "picture")
     public void setPicture(String picture) {
         this.picture = picture;
     }
@@ -96,11 +114,11 @@ public class ItemRo {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        ItemRo item = (ItemRo) o;
-        return Objects.equals(this.name, item.name)
-                && Objects.equals(this.price, item.price)
-                && Objects.equals(this.description, item.description)
-                && Objects.equals(this.picture, item.picture);
+        ItemRo itemRo = (ItemRo) o;
+        return Objects.equals(this.name, itemRo.name)
+                && Objects.equals(this.price, itemRo.price)
+                && Objects.equals(this.description, itemRo.description)
+                && Objects.equals(this.picture, itemRo.picture);
     }
 
     @Override
@@ -111,7 +129,7 @@ public class ItemRo {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Item {\n");
+        sb.append("class ItemRo {\n");
 
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    price: ").append(toIndentedString(price)).append("\n");

@@ -18,7 +18,7 @@ import net.frey.smartbar.backoffice.api.model.CategoryRo;
 @Path("/categories")
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen",
-        date = "2025-08-11T13:47:41.328995228-04:00[America/New_York]",
+        date = "2025-08-21T13:45:59.456751902-04:00[America/New_York]",
         comments = "Generator version: 7.14.0")
 public interface CategoriesApi {
 
@@ -47,13 +47,13 @@ public interface CategoriesApi {
      *
      *
      * @param categoryId
-     * @param category
+     * @param categoryRo
      * @return Entity successfully updated
      */
     @PUT
     @Path("/{categoryId}")
     @Consumes({"application/json"})
-    Response categoriesCategoryIdPut(@PathParam("categoryId") String categoryId, @Valid CategoryRo category);
+    Response categoriesCategoryIdPut(@PathParam("categoryId") String categoryId, @Valid CategoryRo categoryRo);
 
     /**
      *
@@ -67,10 +67,10 @@ public interface CategoriesApi {
     /**
      *
      *
-     * @param category
+     * @param categoryRo
      * @return Entity successfully created
      */
     @POST
     @Consumes({"application/json"})
-    Response categoriesPost(@Valid CategoryRo category);
+    Response categoriesPost(@Valid CategoryRo categoryRo);
 }

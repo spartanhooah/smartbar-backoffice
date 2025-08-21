@@ -14,7 +14,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/category"
+                  $ref: "#/components/schemas/categoryRo"
                 type: array
           description: Success
       tags:
@@ -28,7 +28,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/category"
+              $ref: "#/components/schemas/categoryRo"
       responses:
         "201":
           $ref: "#/components/responses/201"
@@ -73,7 +73,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/category"
+                $ref: "#/components/schemas/categoryRo"
           description: Success
       tags:
       - Categories
@@ -102,7 +102,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/category"
+              $ref: "#/components/schemas/categoryRo"
       responses:
         "200":
           description: Entity successfully updated
@@ -121,7 +121,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/item"
+                  $ref: "#/components/schemas/itemRo"
                 type: array
           description: Success
       tags:
@@ -135,7 +135,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/item"
+              $ref: "#/components/schemas/itemRo"
       responses:
         "201":
           $ref: "#/components/responses/201"
@@ -179,7 +179,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/item"
+                $ref: "#/components/schemas/itemRo"
           description: Success
       tags:
       - Items
@@ -208,7 +208,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/item"
+              $ref: "#/components/schemas/itemRo"
       responses:
         "200":
           description: Entity successfully updated
@@ -335,7 +335,7 @@ components:
           explode: false
           style: simple
   schemas:
-    category:
+    categoryRo:
       example:
         name: name
         description: description
@@ -344,7 +344,10 @@ components:
           type: string
         description:
           type: string
-    item:
+      required:
+      - description
+      - name
+    itemRo:
       example:
         price: 0.8008281904610115
         name: name
@@ -359,6 +362,11 @@ components:
           type: string
         picture:
           type: string
+      required:
+      - description
+      - name
+      - picture
+      - price
     tableRo:
       example:
         name: name
@@ -371,3 +379,7 @@ components:
           type: integer
         active:
           type: boolean
+      required:
+      - active
+      - name
+      - seatCount

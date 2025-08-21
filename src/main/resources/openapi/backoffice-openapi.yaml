@@ -17,7 +17,7 @@ paths:
                 type:
                   - array
                 items:
-                  $ref: "#/components/schemas/category"
+                  $ref: "#/components/schemas/categoryRo"
     post:
       tags:
         - Categories
@@ -25,7 +25,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/category"
+              $ref: "#/components/schemas/categoryRo"
       responses:
         201:
           description: Success
@@ -43,7 +43,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/category"
+              $ref: "#/components/schemas/categoryRo"
       responses:
         200:
           description: Entity successfully updated
@@ -62,7 +62,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/category"
+                $ref: "#/components/schemas/categoryRo"
   /items:
     get:
       tags:
@@ -75,7 +75,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/item"
+                  $ref: "#/components/schemas/itemRo"
     post:
       tags:
         - Items
@@ -83,7 +83,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/item"
+              $ref: "#/components/schemas/itemRo"
       responses:
         201:
           $ref: "#/components/responses/201"
@@ -100,7 +100,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/item"
+              $ref: "#/components/schemas/itemRo"
       responses:
         200:
           description: Entity successfully updated
@@ -119,7 +119,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/item"
+                $ref: "#/components/schemas/itemRo"
   /tables:
     get:
       tags:
@@ -179,15 +179,23 @@ paths:
                 $ref: "#/components/schemas/tableRo"
 components:
   schemas:
-    category:
+    categoryRo:
+      required:
+        - name
+        - description
       type: object
       properties:
         name:
           type: string
         description:
           type: string
-    item:
+    itemRo:
       type: object
+      required:
+        - name
+        - price
+        - description
+        - picture
       properties:
         name:
           type: string
@@ -199,6 +207,10 @@ components:
           type: string
     tableRo:
       type: object
+      required:
+        - name
+        - seatCount
+        - active
       properties:
         name:
           type: string
