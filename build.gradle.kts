@@ -15,7 +15,9 @@ val quarkusPlatformArtifactId: String by project
 val quarkusPlatformVersion: String by project
 
 dependencies {
+    implementation(enforcedPlatform("${quarkusPlatformGroupId}:quarkus-camel-bom:${quarkusPlatformVersion}"))
     implementation(enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}"))
+    implementation("org.apache.camel.quarkus:camel-quarkus-mapstruct")
     implementation("io.quarkus:quarkus-rest-jackson")
     implementation("io.quarkus:quarkus-arc")
     implementation("io.quarkus:quarkus-rest")
@@ -25,6 +27,8 @@ dependencies {
     implementation("io.quarkus:quarkus-config-yaml")
 
     implementation("org.apache.commons:commons-lang3:3.18.0")
+
+    annotationProcessor("org.mapstruct:mapstruct-processor:1.6.3")
 
     testImplementation("io.quarkus:quarkus-junit5")
     testImplementation("io.rest-assured:rest-assured")

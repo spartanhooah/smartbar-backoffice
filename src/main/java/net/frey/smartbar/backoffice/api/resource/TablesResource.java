@@ -6,25 +6,23 @@ import lombok.RequiredArgsConstructor;
 import net.frey.smartbar.backoffice.api.model.TableRo;
 import net.frey.smartbar.backoffice.api.service.TableService;
 import net.frey.smartbar.backoffice.data.Table;
+import net.frey.smartbar.backoffice.mapper.TableMapper;
 import org.apache.commons.lang3.StringUtils;
 
 @RequiredArgsConstructor
 public class TablesResource implements TablesApi {
     private final TableService tableService;
+    private final TableMapper mapper;
 
     @Override
     public Response tablesGet() {
-        return Response.ok(tableService.getAll(Table.class)).build();
+        return Response.ok(tableService.getAll(Table.class).stream().map(mapper::toRo))
+                .build();
     }
 
     @Override
     public Response tablesPost(TableRo tableRo) {
-        final var table = new Table();
-        table.setName(tableRo.getName());
-        table.setSeatCount(tableRo.getSeatCount());
-        table.setActive(tableRo.getActive());
-
-        final var persistedTable = tableService.persist(table);
+        final var persistedTable = tableService.persist(mapper.toEntity(tableRo));
 
         return Response.created(URI.create("/tables/" + persistedTable.getId())).build();
     }
@@ -38,7 +36,9 @@ public class TablesResource implements TablesApi {
 
     @Override
     public Response tablesTableIdGet(String tableId) {
-        return Response.ok(tableService.get(Table.class, Long.valueOf(tableId))).build();
+        var foundTable = tableService.get(Table.class, Long.valueOf(tableId));
+
+        return Response.ok(mapper.toRo(foundTable)).build();
     }
 
     @Override

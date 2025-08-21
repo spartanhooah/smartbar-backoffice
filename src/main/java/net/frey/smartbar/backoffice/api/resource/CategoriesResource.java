@@ -1,18 +1,19 @@
 package net.frey.smartbar.backoffice.api.resource;
 
+import static org.apache.commons.lang3.StringUtils.isNotEmpty;
+
 import jakarta.ws.rs.core.Response;
+import java.net.URI;
 import lombok.RequiredArgsConstructor;
 import net.frey.smartbar.backoffice.api.model.CategoryRo;
 import net.frey.smartbar.backoffice.api.service.CategoryService;
 import net.frey.smartbar.backoffice.data.Category;
-
-import java.net.URI;
-
-import static org.apache.commons.lang3.StringUtils.isNotEmpty;
+import net.frey.smartbar.backoffice.mapper.CategoryMapper;
 
 @RequiredArgsConstructor
 public class CategoriesResource implements CategoriesApi {
     private final CategoryService categoryService;
+    private final CategoryMapper mapper;
 
     @Override
     public Response categoriesCategoryIdDelete(String categoryId) {
@@ -23,7 +24,9 @@ public class CategoriesResource implements CategoriesApi {
 
     @Override
     public Response categoriesCategoryIdGet(String categoryId) {
-        return Response.ok(categoryService.get(Category.class, Long.valueOf(categoryId))).build();
+        Category entity = categoryService.get(Category.class, Long.valueOf(categoryId));
+
+        return Response.ok(entity).build();
     }
 
     @Override
@@ -45,17 +48,15 @@ public class CategoriesResource implements CategoriesApi {
 
     @Override
     public Response categoriesGet() {
-        return Response.ok(categoryService.getAll(Category.class)).build();
+        return Response.ok(categoryService.getAll(Category.class).stream().map(mapper::toRo))
+                .build();
     }
 
     @Override
     public Response categoriesPost(CategoryRo category) {
-        final var newCategory = new Category();
-        newCategory.setName(category.getName());
-        newCategory.setDescription(category.getDescription());
+        final var persistedCategory = categoryService.persist(mapper.toEntity(category));
 
-        final var persistedCategory = categoryService.persist(newCategory);
-
-        return Response.created(URI.create("/categories/" + persistedCategory.getId())).build();
+        return Response.created(URI.create("/categories/" + persistedCategory.getId()))
+                .build();
     }
 }
